@@ -50,7 +50,7 @@ static void ctl_status_handle(struct bt_mesh_model *model,
 		model_ack_rx(&cli->ack_ctx);
 	}
 
-	if (cli->handlers->ctl_status) {
+	if (cli->handlers && cli->handlers->ctl_status) {
 		cli->handlers->ctl_status(cli, ctx, &status);
 	}
 }
@@ -79,7 +79,7 @@ static void temp_range_status_handle(struct bt_mesh_model *model,
 		model_ack_rx(&cli->ack_ctx);
 	}
 
-	if (cli->handlers->temp_range_status) {
+	if (cli->handlers && cli->handlers->temp_range_status) {
 		cli->handlers->temp_range_status(cli, ctx, &status);
 	}
 }
@@ -129,7 +129,7 @@ static void temp_status_handle(struct bt_mesh_model *model,
 		model_ack_rx(&cli->ack_ctx);
 	}
 
-	if (cli->handlers->temp_status) {
+	if (cli->handlers && cli->handlers->temp_status) {
 		cli->handlers->temp_status(cli, ctx, &status);
 	}
 }
@@ -163,7 +163,7 @@ static void default_status_handle(struct bt_mesh_model *model,
 		model_ack_rx(&cli->ack_ctx);
 	}
 
-	if (cli->handlers->default_status) {
+	if (cli->handlers && cli->handlers->default_status) {
 		cli->handlers->default_status(cli, ctx, &status);
 	}
 }
